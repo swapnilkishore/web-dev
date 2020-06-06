@@ -1,0 +1,15 @@
+<%- include("partials/header") -%>
+<h1>Home</h1>
+<p> <%= homeStartingContent %> </p>
+<% let ending = "..."; %>
+<% posts.forEach(function(post) { %>
+    <% let postTitle = post.title; %>
+    <% let postBody = post.body; %>
+    <% let length = postBody.length %>
+    <% if(length > 100) { %>
+      <%  postBody = postBody.substring(0, 100) + ending; %>
+    <% } %>
+    <h1> <%= postTitle %> </h1>
+    <p> <%= postBody %> <a href="/posts/<%= postTitle %>">Read More</a> </p>
+<% }); %>
+<%- include("partials/footer") -%>
